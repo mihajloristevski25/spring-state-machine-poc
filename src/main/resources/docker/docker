@@ -1,0 +1,16 @@
+
+ #pull postgres image
+ docker pull postgres
+
+ #create a postgres db using docker container
+ docker run --name state-machine-db -e POSTGRES_USER=state_machine -e POSTGRES_PASSWORD=postgres123 -e POSTGRES_DB=statemachinedb -p 5433:5432 -d postgres
+
+ #connect to posgres db
+ docker exec -it state-machine-db psql -U state_machine -d statemachinedb
+
+ #start postgres db
+ docker start state-machine-db
+
+ #stop postgres db
+ docker stop state-machine-db
+
